@@ -1,0 +1,63 @@
+{
+  "events":[
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "tags" : ["VALPARAISO","TARREO","PRESENCIAL"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "img_url" : "media/img/img2.jpg",
+      "tags" : ["VALPARAISO","TARREO","ONLINE"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "img_url" : "media/img/img3.jpg",
+      "tags" : ["VIÑA DEL MAR","PRESENCIAL"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "tags" : ["VALPARAISO","TARREO","PRESENCIAL"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "img_url" : "media/img/img2.jpg",
+      "tags" : ["VALPARAISO","TARREO","PRESENCIAL"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "tags" : ["VALPARAISO","TARREO","PRESENCIAL"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "img_url" : "media/img/img2.jpg",
+      "tags" : ["VALPARAISO","TARREO","ONLINE"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "img_url" : "media/img/img3.jpg",
+      "tags" : ["VIÑA DEL MAR","PRESENCIAL"]
+    },
+    {
+      "title" : "Tarreo valparaiso 100.0",
+      "subtitle" : "el honor en juego",
+      "content" : "Quinta edicion del torneo, ahora en viña del mar",
+      "tags" : ["VALPARAISO","TARREO","PRESENCIAL"]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+
+<nav id="navbar" class="navbar navbar-fixed-top navbar-default bs-docs-nav" style="background: url('/img/ui/noisy_net.png') repeat;" role="banner">
+  <div class="container" >
+      <div class="container-fluid" >
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-d2eg" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/">
+            <img alt="Brand" src="/img/logo.png" class="navbar-brand">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-d2eg">
+          <ul class="nav navbar-nav">
+            <li><a href='#' style ="color:rgba(234, 239, 243, 0.71);">TORNEOS</a></li>
+            <li><a href='#' style ="color:rgba(234, 239, 243, 0.71);">PARTIDAS</a></li>
+            <li><a href='#' style ="color:rgba(234, 239, 243, 0.71);">JUGADORES</a></li>
+            <li><a href='#' style ="color:rgba(234, 239, 243, 0.71);">NOSOTROS</a></li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if (!user) { %>
+            <li>
+              <a href="/auth/steam">
+                <button type="button" class="btn btn-sm">
+                  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Steam Login
+                </button>
+              </a>
+            </li>
+            <% } else { %>
+            <li>
+              <a href="/players/<%= user.steamid %>"><%= user.personaname %></a>
+            </li>
+            <li>
+              <a href="/players/account">Cuenta</a>
+            </li>
+            <li>
+              <a href='/players/logout'><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
+            </li>
+            <% } %>
+
+            <% if(admin){ %>
+              <li>
+                <a><%= admin.nickname %></a>
+              </li>
+              <li>
+                <a href="/admin/account">Cuenta</a>
+              </li>
+              <li>
+                <a href='/admin/logout'><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
+              </li>
+            <% } %>
+
+          </ul>
+        </div>
+      </div>
+  </div>
+</nav>
+<!-- <canvas id="projector">Your browser does not support the Canvas element.</canvas> -->

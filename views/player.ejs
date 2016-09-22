@@ -1,0 +1,105 @@
+<head>
+  <style>
+    .blend {
+      background-size: cover;
+      background-blend-mode: darken;
+    }
+  </style>
+  <% include partials/head %>
+  <script src="/js/ajaxtwitch.js"></script>
+</head>
+<body>
+
+  <% include partials/google-analytics %>
+	<% include partials/facebook %>
+	<% include partials/header %>
+
+  <div id="bigpicture" class="crt-parallaxvideo">
+  </div>
+
+  <div class="plax content">
+
+    <div class="container" >
+      <!-- <% include partials/publicidad-top %> -->
+      <div class="row" style="background-color:rgba(31, 14, 14, 0.59);">
+
+        <div class=" col-md-12">
+
+        <% if (!player) { %>
+          <div class="alert alert-danger" role="alert">No existe este jugador en nuestros registros</div>
+        <% } else { %>
+
+          <div class="panel panel-primary">
+
+            <div class="panel-heading"><%= player.personaname %></div>
+
+            <div class="panel-body" >
+
+            </div>
+          </div>
+
+          <% if(player && player.twitch){ %>
+          <div class="panel panel-twitch">
+
+            <div class="panel-heading"><img src="/img/social/twitch.png" width="16"> Twitch </div>
+
+            <div id="twitch_banner" class="panel-body blend" style="color:white;">
+
+              <a href="http://twitch.tv/<%= player.twitch.name %>">
+                <div class="col-md-2"><img id="twitch_logo" height=64 width=64 class="img-thumbnail"></div>
+              </a>
+
+              <div class="col-md-9">
+
+                <a href="http://twitch.tv/<%= player.twitch.name %>"><h2 id="twitch_name"></h2></a>
+
+                <p>
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <span id="twitch_views"></span>
+                  <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <span id="twitch_followers"></span>
+                </p>
+
+                <p><%= player.twitch.bio %></p>
+
+              </div>
+            </div>
+          </div>
+          <% }%>
+        <% }%>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <% include partials/sidebar %>
+      </div>
+    </div>
+
+    <% include partials/footer %>
+  </div>
+
+
+  <% include partials/bootstrapjs %>
+  <% if(player&&player.twitch){ %>
+
+  <script>
+    document.getElementById("bigpicture").className = 'plax ccparallax';
+    document.getElementById("bigpicture").style.backgroundImage = "url('<%= player.avatar %>')";
+    document.getElementById("bigpicture").innerHTML = '<div class="container"><h1><%= player.personaname %></h1></div>';
+    getChannelInfo("<%= player.twitch.name %>");
+    getStreamInfo("<%= player.twitch.name %>");
+  </script>
+  <% } %>
+  <% if(player&&!player.twitch){ %>
+    <script>
+    document.getElementById("bigpicture").className = 'plax ccparallax';
+    document.getElementById("bigpicture").style.backgroundImage = "url('<%= player.avatar %>')";
+    document.getElementById("bigpicture").innerHTML = '<div class="container"><h1><%= player.personaname %></h1></div>';
+    </script>
+  <% } %>
+  <% if(!player){ %>
+    <script>
+    document.getElementById("bigpicture").className = 'plax ccparallax';
+    document.getElementById("bigpicture").style.backgroundImage = "url('/img/riki.jpg')";
+    document.getElementById("bigpicture").innerHTML = '<div class="container"><h1>not found</h1></div>';
+    </script>
+  <% } %>
+</body>

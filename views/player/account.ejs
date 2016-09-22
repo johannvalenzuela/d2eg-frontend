@@ -1,0 +1,37 @@
+<head>
+  <% include ../partials/head %>
+</head>
+<body  background="/img/ui/footer_lodyas.png">
+  <% include ../partials/google-analytics %>
+	<% include ../partials/header %>
+	<div class="container" style="padding-top: 60px;">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-twitch">
+          <div class="panel-heading"><img src="/img/social/twitch.png" width="16"> Twitch </div>
+          <% if (!user.twitch){ %>
+          <div class="panel-body">
+            Vincula tu cuenta de Twitch para promocionar tus streams en nuestra página
+          </div>
+          <div class="panel-footer">
+            <a href="/twitch/auth"><img src="/img/icon/twitch-login.png"></a>
+          </div>
+          <% }else{ %>
+          <div class="panel-body">
+            <p>Conectado a <%= user.twitch.name %>
+          </div>
+          <div class="panel-footer">
+            <a href="/players/twitch/disconnect"><button class="btn btn-danger">Desvincular</button></a>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    <% if (!user.facebook){ %>
+      <a href="/facebook/auth">CONECTAR A FB</a>
+    <% }else{ %>
+      <p>Conectado a <%= user.twitch.name %></p>
+    <% } %>
+    </div>
+  </div>
+  <% include ../partials/bootstrapjs %>
+</body>

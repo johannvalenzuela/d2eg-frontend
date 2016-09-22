@@ -1,0 +1,54 @@
+
+<head>
+	<% include ../partials/head %>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+</head>
+<body>
+	<% include ../partials/google-analytics %>
+	<% include ../partials/header %>
+	<div class="plax content">
+	  <div class="container" style="padding-top: 80px;">
+			<div class="row">
+				<div class="col-md-12">
+					<% include header %>
+	      </div>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+	        <div class="row">
+						<div class="jumbotron">
+						  <h1>Competencias</h1>
+							<!-- Button trigger modal -->
+							<a href="/admin/leagues/create"><button type="button" class="btn btn-primary btn-lg">
+							  Crear
+							</button></a>
+						</div>
+						<% console.log(leagues) %>
+	          <% for (var l in leagues){ %>
+	          <div class="col-md-6">
+	            <div class="panel">
+	              <div class="panel-body">
+									<h3>Titulo <small><%= leagues[l].title %></small></h3>
+									<h3>Avatar</h3>
+	                <img src="<%= leagues[l].avatar %>" class="img-responsive" alt="Responsive image">
+	                <h4>Descripcion</h4>
+	                <p><%= leagues[l].description %></p>
+	                <h4>Reglas</h4>
+	                <p><%= leagues[l].rules %></p>
+	              </div>
+	              <div class="panel-footer">
+	                <a href="/admin/leagues/edit/<%= leagues[l]._id %>"><button class="btn">Editar</button></a>
+	                <a href="/admin/leagues/delete/<%= leagues[l]._id %>"><button class="btn btn-danger">Borrar</button></a>
+	              </div>
+	            </div>
+	          </div>
+	          <%}%>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<% include ../partials/footer %>
+  <% include ../partials/bootstrapjs %>
+</body>

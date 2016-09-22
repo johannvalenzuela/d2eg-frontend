@@ -1,0 +1,84 @@
+<head>
+  <% include partials/head %>
+  <script src="/js/marked.js"></script>
+</head>
+<body>
+
+  <% include partials/google-analytics %>
+	<% include partials/facebook %>
+	<% include partials/header %>
+
+  <div id="bigpicture" class="plax ccparallax">
+
+    <div class="container"></div>
+  </div>
+
+  <div class="plax content">
+
+	  <div class="container">
+      <% include partials/publicidad-top %>
+      <div class="row">
+
+        <div class="col-md-9">
+
+          <div class="row">
+
+            <div class="col-md-8">
+              <div class="page-header">
+                <h2 id="title">No hay datos o no existe</h2>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <img id="avatar" src="" width="100%" height="350px" alt="Responsive image">
+            </div>
+            <div class="col-md-8">
+              <div class="page-header">
+                <h3>Descripción <small></small></h1>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div id="description"></div>
+              <p role="separator" class="divider"></p>
+            </div>
+            <div class="col-md-8">
+              <div class="page-header">
+                <h3>Reglas <small>Sujetas a cambio con previo aviso</small></h1>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div id="rules"></div>
+            </div>
+          </div>
+        </div>
+
+        <% include partials/sidebar %>
+
+      </div>
+
+    </div>
+
+      <% include partials/footer %>
+
+  </div>
+
+  <% include partials/bootstrapjs %>
+  <script>
+    var xmlhttp = new XMLHttpRequest();
+    var urlTwitchChannel = "http://localhost/api/league/<%= league %>";
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var data = JSON.parse(xmlhttp.responseText);
+        if(!data.error){
+          document.getElementById("bigpicture").style.backgroundImage = "url('" + data.league.avatar + "')";
+          document.getElementById("avatar").src = data.league.avatar;
+          document.getElementById("bigpicture").innerHTML = '<div class="container"><h1>' + data.league.title + '</h1></div>';
+          document.getElementById("description").innerHTML = marked(data.league.description);
+          document.getElementById("rules").innerHTML = marked(data.league.rules);
+          document.getElementById("title").innerHTML = data.league.title;
+        }
+      }
+    };
+    xmlhttp.open("GET", urlTwitchChannel, true);
+    xmlhttp.send();
+  </script>
+</body>

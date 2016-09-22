@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	</head>
+  <body  ng-app="myApp">
+    <md-fab-toolbar style="position:fixed;">
+      <md-fab-trigger class="align-with-text">
+        <md-button aria-label="menu" class="md-fab md-accent">
+          <md-icon>menu</md-icon>
+        </md-button>
+      </md-fab-trigger>
+
+      <md-toolbar >
+        <md-fab-actions class="md-toolbar-tools">
+          <md-button aria-label="comment" class="md-icon-button">
+            <md-icon>comment</md-icon>
+          </md-button>
+          <md-button aria-label="label" class="md-icon-button">
+            <md-icon>label</md-icon>
+          </md-button>
+          <md-button aria-label="photo" class="md-icon-button">
+            <md-icon>photo</md-icon>
+          </md-button>
+          <md-button aria-label="comment" class="md-icon-button">
+            <md-icon>comment</md-icon>
+          </md-button>
+          <md-button aria-label="label" class="md-icon-button">
+            <md-icon>label</md-icon>
+          </md-button>
+          <md-button aria-label="photo" class="md-icon-button">
+            <md-icon>photo</md-icon>
+          </md-button>
+        </md-fab-actions>
+      </md-toolbar>
+    </md-fab-toolbar>
+    <div style="background-color: grey !important;background:url('media/img/dota2background.jpg');background-size:cover; background-blend-mode:soft-light;">
+
+        <h1 style="text-align:center; padding: 8% 0 8% 0; margin: 0 0 0 0 ;font-weight: 10">
+          Dota 2<br>Elite Gamers<br>
+          <img height="64" src="media/img/logo.png">
+        </h1>
+
+    </div>
+    <div flex-xs="100" flex-offset-xs="0" flex-offset="10" flex="80">
+    <div ng-controller="EventsController" layout-padding>
+      <h2>Eventos</h2>
+      <div layout="row" layout-wrap>
+
+        <md-card flex-xs="100" flex-sm="45" flex-md="30" ng-repeat="event in events" flex="15" event-card>
+        </md-card>
+
+        <md-card flex-xs="100" flex-sm="45" flex-md="30" flex="15" layout-align="center center" flex>
+          <md-card-content>
+            <a ng-href="#">
+              <md-icon>forward</md-icon>
+            </a>
+          </md-card-content>
+        </md-card>
+
+      </div>
+    </div>
+    </div>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+
+		<!-- Modules -->
+		<script src="js/app.js"></script>
+
+		<!-- Controllers -->
+		<script src="js/controllers/admin.ctrl.js"></script>
+    <script src="js/controllers/events.ctrl.js"></script>
+
+		<!-- Directives -->
+		<script src="js/directives/study.js"></script>
+		<script src="js/directives/contact.js"></script>
+    <script src="js/directives/events-card.js"></script>
+
+
+
+    <!-- Configs -->
+    <script src="js/configs/palette.js"></script>
+
+  </body>
+</html>

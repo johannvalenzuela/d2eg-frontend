@@ -1,0 +1,49 @@
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+	<% include ../partials/google-analytics %>
+	<% include ../partials/facebook %>
+	<% include ../partials/header %>
+	<div class="plax content">
+	  <div class="container" style="padding-top: 80px;">
+			<div class="row">
+				<div class="col-md-12">
+					<% include header %>
+	      </div>
+			</div>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="jumbotron">
+						<h1>Jugadores</h1>
+	            <table class="table table-striped table-hover">
+	              <thead>
+	                <tr>
+	                  <th>#</th>
+	                  <th>Img</th>
+	                  <th>SteamID</th>
+	                  <th>Nick</th>
+	                  <th>Twitch</th>
+	                </tr>
+	              </thead>
+	              <%for (var p in players){ %>
+	              <tr>
+	                <td><%= p %></td>
+	                <td><img src="<%= players[p].avatar %>"></td>
+	                <td><%= players[p].steamid %></td>
+	                <td><%= players[p].personaname %></td>
+	                <% if(players[p].twitch){ %>
+	                  <td class="success"><a href="http://twitch.tv/<%= players[p].twitch.name %>">SI</a></td>
+	                <% }else{ %>
+	                  <td class="danger">NO</td>
+	                <% } %>
+	              </tr>
+	              <%}%>
+	            </table>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  <% include ../partials/footer %>
+  <% include ../partials/bootstrapjs %>
+</body>

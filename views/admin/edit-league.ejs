@@ -1,0 +1,119 @@
+<head>
+
+  <% include ../partials/head %>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+  <script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+</head>
+<body>
+
+  <% include ../partials/google-analytics %>
+	<% include ../partials/facebook %>
+	<% include ../partials/header %>
+  <div class="plax content">
+	  <div class="container" style="padding-top: 80px;">
+			<div class="row">
+				<div class="col-md-12">
+					<% include header %>
+	      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="panel">
+
+            <div class="panel-heading"><h4>Creando una competencia</h4></div>
+
+            <div class="panel-body">
+        			<form action="/admin/leagues/edit/<%= leagueid %>" method="POST">
+
+        				<div class="form-group">
+        					<label>Titulo</label>
+        					<input type="text" class="form-control" placeholder="Titulo del evento" name="title" id="title">
+        				</div>
+
+      					<div class="form-group">
+                  <label>Avatar</label>
+                  <input type="text" class="form-control" onchange="avatarChange();" placeholder="URL" id="urlAvatar">
+        					<input class="form-control" placeholder="Link de una imagen" id="inp" type='file'>
+        					<p id="b64"></p>
+      						<img id="showAvatar">
+        					<input type="hidden" name="avatar" id="avatar" value="http://i.imgur.com/QI9AeTc.png">
+        				</div>
+
+      					<div class="form-group">
+        					<input type="hidden" name="description" id="description" value="Sin datos">
+        					<label>Descripcion</label>
+      						<textarea id="leaguedescription"></textarea>
+        				</div>
+
+        				<div class="form-group">
+      						<input type="hidden" name="rules" id="rules" value="Sin datos">
+        					<label>Reglas</label>
+        					<textarea id="leaguerules"></textarea>
+        				</div>
+
+                <button onclick="sendForm();" class="btn btn-default">Editar</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/footer %>
+  <% include ../partials/bootstrapjs %>
+
+  <script>
+    //Declaracion de variables
+    var leagueDescriptionMDE = new SimpleMDE({ element: document.getElementById("leaguedescription") });
+    var leagueRulesMDE = new SimpleMDE({ element: document.getElementById("leaguerules") });
+
+
+    document.getElementById("inp").addEventListener("change", function() {
+      if (this.files && this.files[0]) {
+        var FR= new FileReader();
+        FR.onload = function(e) {
+          document.getElementById("showAvatar").src       = e.target.result;
+          document.getElementById("avatar").value = e.target.result;
+        };
+        FR.readAsDataURL( this.files[0] );
+      }
+    }, false);
+    document.getElementById("urlAvatar").addEventListener("change", function(){
+      document.getElementById("avatar").value = document.getElementById("urlAvatar").value
+    }, false);
+
+    leagueDescriptionMDE.codemirror.on("change", function(){
+      console.log(leagueDescriptionMDE.options.previewRender(leagueDescriptionMDE.value()));
+      document.getElementById("description").value =  leagueDescriptionMDE.value();
+
+    });
+
+    leagueRulesMDE.codemirror.on("change", function(){
+      console.log(leagueRulesMDE.value());
+      document.getElementById("rules").value = leagueRulesMDE.value();
+    });
+
+    function sendForm(){
+      document.leaguesForm.submit();
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (xhttp.readyState == 4 && xhttp.status == 200) {
+        var responseJSON = JSON.parse(xhttp.responseText);
+        var league = responseJSON.league;
+       document.getElementById("title").value = league.title;
+       document.getElementById("avatar").value = league.avatar;
+       document.getElementById("showAvatar").src = league.avatar;
+       leagueRulesMDE.value(league.rules);
+       leagueDescriptionMDE.value(league.description);
+      }
+    };
+    xhttp.open("GET", "http://localhost/api/league/<%= leagueid %>", true);
+    xhttp.send();
+  </script>
+</body>

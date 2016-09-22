@@ -1,0 +1,133 @@
+<head>
+	<link rel="stylesheet" href="/css/parallax.css">
+	<% include partials/head %>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+</head>
+<body>
+
+	<% include partials/google-analytics %>
+	<% include partials/facebook %>
+	<% include partials/header %>
+
+	<div class="crt-parallaxvideo hidden-xs hidden-sm">
+		<video autoplay muted loop>
+			<source src="/video/intro1080.mp4" type="video/mp4">
+			<source src="/video/intro720.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<div class="plax content">
+		<div class="container" style="">
+		<!-- <canvas id="projector">Your browser does not support the Canvas element.</canvas> -->
+			<!-- <% include partials/publicidad-top %> -->
+			<div class="row">
+				<div class="col-md-10">
+					<div class="row" style="background-color:rgba(31, 14, 14, 0.59);">
+						<div class=" col-md-3">
+							<!-- Indicators -->
+							<ol class="carousel-indicators nav nav-pills nav-stacked" style="height:300px;background: url('/img/ui/noisy_net.png') repeat;border: 5px solid #b73f3f;margin-right:-30px;padding-left: 0px;padding-right: 0px;">
+								<li role="presentation" data-target="#carousel1" data-slide-to="0" >
+									<a href="#" class="media">
+										<div class="media-left">
+											<img class="media-object" src="/img/carousel/copa.png" height="34" alt="...">
+										</div>
+										<div class="media-body">
+											<h5 class="media-heading">COPA</h5>
+										</div>
+									</a>
+								</li>
+								<li role="presentation" data-target="#carousel1" data-slide-to="1">
+									<a href="#" class="media">
+										<div class="media-left">
+											<img class="media-object" src="/img/carousel/copa.png" height="34" alt="...">
+										</div>
+										<div class="media-body">
+											<h5 class="media-heading">ACTUALIZACION</h5>
+										</div>
+									</a>
+								</li>
+								<li role="presentation" data-target="#carousel1" data-slide-to="2">
+									<a href="#" class="media">
+										<div class="media-left">
+											<img class="media-object" src="/img/carousel/copa.png" height="34" alt="...">
+										</div>
+										<div class="media-body">
+											<h5 class="media-heading">ACTUALIZACION</h5>
+										</div>
+									</a>
+								</li>
+								<li role="presentation" data-target="#carousel1" data-slide-to="3">
+									<a href="#" class="media">
+										<div class="media-left">
+											<img class="media-object" src="/img/carousel/copa.png" height="34" alt="...">
+										</div>
+										<div class="media-body">
+											<h5 class="media-heading">ACTUALIZACION</h5>
+											asdsaddsa
+										</div>
+									</a>
+								</li>
+								<li role="presentation" data-target="#carousel1" data-slide-to="4">
+									<a href="#" class="media">
+										<div class="media-left">
+											<img class="media-object" src="/img/carousel/copa.png" height="32" alt="...">
+										</div>
+										<div class="media-body">
+											<h5 class="media-heading">ACTUALIZACION</h5>
+										</div>
+									</a>
+								</li>
+							</ol>
+						</div>
+						<div class=" col-md-8">
+									<% include partials/panel-principal %>
+						</div>
+				<div class=" col-md-9">
+					<div class="page-header">
+						<h2>Noticias </h2>
+					</div>
+				</div>
+				<div class="col-md-10">
+				</div>
+				<div class="col-md-9">
+					<div class="page-header">
+						<h3>Más contenido en </h1>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-facebook">
+		        <div class="panel-heading"><img src="/img/social/facebook.png" width="16"> Facebook</div>
+		        <div class="fb-page embed-responsive embed-responsive-16by9" data-href="https://www.facebook.com/d2egcl/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" height="250"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/d2egcl/"><a href="https://www.facebook.com/d2egcl/">Dota 2 Elite Gamers</a></blockquote></div></div>
+		      </div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-youtube">
+		        <div class="panel-heading"><img src="/img/social/youtube-play.png" width="16"> Youtube</div>
+		        <div class="embed-responsive embed-responsive-16by9">
+		          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ZHAI6JttBLA?rel=0&amp;controls=0&autoplay=0" frameborder="0" allowfullscreen></iframe>
+		        </div>
+		      </div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-twitch">
+		        <div class="panel-heading"><img src="/img/social/twitch.png" width="16"> Twitch</div>
+		        <div class="embed-responsive embed-responsive-16by9">
+		          <iframe class="embed-responsive-item" src="https://player.twitch.tv/?channel=d2egcl" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/d2egcl?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from d2egcl on www.twitch.tv</a>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<% include partials/sidebar %>
+		</div>
+
+		<% include partials/footer %>
+	</div>
+
+
+	<% include partials/bootstrapjs %>
+
+</body>
